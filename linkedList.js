@@ -31,8 +31,6 @@ class LinkedList {
     
     this.tail = prevNode;
     this.tail.next = null;
-    console.log('tail', this.tail);
-
   }
 
   removeHead() {
