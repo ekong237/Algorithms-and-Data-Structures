@@ -16,13 +16,11 @@ const stringPermutation = (str) => {
     }
   }
   permute(str, '')
-  console.log(result);
+  // console.log(result);
   return result.length;
 }
 
-console.log(stringPermutation('apple'));
-
-
+console.log(stringPermutation('abc'));
 
 
 
