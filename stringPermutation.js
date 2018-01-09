@@ -1,3 +1,4 @@
+// Given a string, create an array of all permutation of a string
 
 const stringPermutation = (str) => {
   let result = [];

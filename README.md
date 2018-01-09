@@ -1,3 +1,3 @@
 # Algorithms-and-Data-Structures
 
-Practice for interviews
+Practice data structure and algorithm problems for interviews
