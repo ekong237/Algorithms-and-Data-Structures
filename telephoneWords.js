@@ -47,6 +47,7 @@ const letterCombinations = (numbers) => {
       if (result.length < letters.length) {
         temp.push(letters[i]);
       }
+      console.log('temp:', temp, 'result:', result);
       for (let j = 0; j < result.length; j++) {
         temp.push(result[j] + letters[i]);
       }
