@@ -1,21 +1,16 @@
 const selectionSort = (array) => {
-  let currentIndex = 0;
-  
-  let smallestSoFarIndex = 0;
-  let smallestSoFar = array[smallestSoFarIndex];
-
-  while(currentIndex <= array.length -1) {
-    for(let i = currentIndex; i < array.length; i++) {
-      if (array[i] <= array[smallestSoFarIndex]) {
-        smallestSoFarIndex = i;
-      }
-      if (i === array.length - 1) {
-        [array[currentIndex], array[smallestSoFarIndex]] = [array[smallestSoFarIndex], array[currentIndex]]
+  for (let i = 0; i < array.length; i++) {
+    let lowestNumberIndex = i;
+    for (let j = i+1; j < array.length; j++) {
+      if (array[j] < array[lowestNumberIndex]) {
+        lowestNumberIndex = j;
       }
     }
-    currentIndex++;
+    if (lowestNumberIndex !== i) { // check if its already in the right place
+        [array[lowestNumberIndex], array[i]] = [array[i], array[lowestNumberIndex]];
+      }
   }
-  return array;
+  return array;  
 }
 let arr = [5, 6, 7, 1, 2];
 console.log(selectionSort(arr));
