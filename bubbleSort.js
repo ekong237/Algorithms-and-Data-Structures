@@ -1,11 +1,9 @@
 const bubbleSort = (array) => {
   let iteration = array.length;
   while(iteration > 0) {
-    for (let i = 0; i < array.length; i++) {
-      console.log(array[i], array[i+1]);
+    for (let i = 0; i < iteration; i++) {
       if (array[i] > array[i+1]) {
         [array[i+1], array[i]] = [array[i], array[i+1]];
-        console.log('swapped', array[i], array[i+1]);
       }
     }
     iteration--;
