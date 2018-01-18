@@ -2,11 +2,12 @@ const binarySearch = (array, target) => {
   let index = -1;
   const search = (startI, endI) => {
     let middleI = Math.floor((startI + endI)/2);
-    if (startI <= endI) {
-      if (target === array[middleI]) {
-       index = middleI;
-      }
+    if (startI >= endI) {
       return;
+    }
+    if (target === array[middleI]) {
+       index = middleI;
+       return;
     } else if (target > array[middleI]) {
       search(middleI + 1, endI);
     } else if (target < array[middleI]) {
@@ -17,8 +18,8 @@ const binarySearch = (array, target) => {
   return index;
 }
 
-// let array = [1, 2, 3, 4, 5, 6, 7, 8];
-// console.log(binarySearch(array, 9
+let array = [1, 2, 3, 4, 5, 6, 7, 8];
+console.log(binarySearch(array, 7))
 
 const iterativeBinarySearch = (array, target) => {
   let startI = 0;
@@ -37,5 +38,5 @@ const iterativeBinarySearch = (array, target) => {
   return -1;
 }
 
-let array = [1, 2, 3, 4, 5, 6, 7, 8];
-console.log(iterativeBinarySearch(array, 7));
+// let array = [1, 2, 3, 4, 5, 6, 7, 8];
+// console.log(iterativeBinarySearch(array, 7));
