@@ -1,6 +1,7 @@
 const partition = (array, leftIndex, rightIndex) => {
   let pivotIndex = Math.floor( (leftIndex + rightIndex) / 2);
   let pivot = array[pivotIndex];
+
   while (leftIndex <= rightIndex){
     while(array[leftIndex] < pivot){
       leftIndex++;
@@ -15,21 +16,20 @@ const partition = (array, leftIndex, rightIndex) => {
       [array[leftIndex], array[rightIndex]] = [array[rightIndex], array[leftIndex]];
       leftIndex++;
       rightIndex--;
-    } else {
-      break;
-    }
+    } 
   }
   return leftIndex;
 }
 
 
 var quickSort = function(array, left, right){
-  var pivotIndex = partition(array, left, right);
-  if (left < pivotIndex - 1){
-    quickSort(array, left, pivotIndex-1);
+  var leftIndex = partition(array, left, right);
+
+  if (left < leftIndex - 1){
+    quickSort(array, left, leftIndex - 1); //[0, 1]  //[0]
   }
-  if (right > pivotIndex){
-    quickSort(array, pivotIndex, right);
+  if (right >= leftIndex){
+    quickSort(array, leftIndex, right); 
   }
   return array;
 }
