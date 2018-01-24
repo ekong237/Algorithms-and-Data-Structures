@@ -26,7 +26,7 @@ var quickSort = function(array, left, right){
   var leftIndex = partition(array, left, right);
 
   if (left < leftIndex - 1){
-    quickSort(array, left, leftIndex - 1); //[0, 1]  //[0]
+    quickSort(array, left, leftIndex - 1); 
   }
   if (right >= leftIndex){
     quickSort(array, leftIndex, right); 
