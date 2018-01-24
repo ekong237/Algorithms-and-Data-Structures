@@ -24,14 +24,14 @@ const partition = (array, leftIndex, rightIndex) => {
 
 
 var quickSort = function(array, left, right){
-  var leftIndex = partition(array, left, right);
-  if (left < leftIndex - 1){
-    quickSort(array, left, leftIndex-1);
+  var pivotIndex = partition(array, left, right);
+  if (left < pivotIndex - 1){
+    quickSort(array, left, pivotIndex-1);
   }
-  if (right > leftIndex){
-    quickSort(array, leftIndex, right);
+  if (right > pivotIndex){
+    quickSort(array, pivotIndex, right);
   }
   return array;
 }
 let array = [0, 5, 2, 1, 6, 3];
-quickSort(array, 0, array.length-1);
+console.log(quickSort(array, 0, array.length-1));
