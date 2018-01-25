@@ -6,15 +6,41 @@ class Node {
 }
 
 class LinkedList {
-  constructor(headValue) {
-    this.head = new Node(headValue);
-    this.tail = this.head;
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
-  push(val) {
+  insert(val, index) {
+    index = index || undefined;
+
     let newNode = new Node(val);
-    this.tail.next = newNode;
-    this.tail = this.tail.next;
+    
+    if (this.head === null) {
+      this.head = this.tail = newNode;
+    } else if (index){
+      let currentNode = this.head;
+      let prevNode = this.head;
+      let nextNode = currentNode.next;
+      let count = 0;
+      while(currentNode.next) {
+        if (count === index) {
+          prevNode.next = newNode;
+          newNode.next = nextNode;
+          break;
+        } else {
+
+          if (count > 0) {
+            prevNode = prevNode.next;
+          }
+          currentNode = currentNode.next;
+          count++;
+        }
+      }
+    } else {
+      this.tail.next = newNode;
+      this.tail = newNode;
+    }
   }
 
   pop() {
@@ -45,9 +71,13 @@ class LinkedList {
 module.exports.LinkedList = LinkedList;
 
 
-// let myList = new LinkedList(5);
-// myList.push(6);
-// myList.push(7);
-// myList.push(8);
+let myList = new LinkedList();
+myList.insert(5);
+myList.insert(6);
+myList.insert(7);
+
+myList.insert(8, 1)
+
+// myList.insert(8);
 // myList.pop();
-// console.log(myList);
+console.log(myList.head.next);
