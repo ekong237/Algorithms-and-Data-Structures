@@ -6,7 +6,7 @@ class Node {
     }    
 }
  
-class DoublyList() {
+class DoublyLL {
     constructor() {
       this._length = 0;
       this.head = null;
@@ -24,9 +24,7 @@ class DoublyList() {
           this.head = node;
           this.tail = node;
       }
-      
       this._length++;
-      
       return node;
     }
 
