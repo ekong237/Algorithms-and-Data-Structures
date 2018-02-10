@@ -16,6 +16,7 @@ const numToLetters = {
   0: ''
 };
 
+// recursive approach
 const telephoneWords = (num) => {
   let result = [];
   const getLetters = (numLeft, lettersUsed) => {
@@ -35,6 +36,7 @@ const telephoneWords = (num) => {
 }
 console.log(telephoneWords('23'));
 
+// iterative approach
 const letterCombinations = (numbers) => {
   let numbersArr = numbers.slice().split('');
   let result = [];
