@@ -57,16 +57,12 @@ const keyboardRows = (array) => {
     let temp = [];
     let firstNumber = Number(rowsPrinted[word[0]]);
 
-    let same = word.toUpperCase().split('').reduce((allSameRow, letter, i) => {
+    let filterSameRow = word.toUpperCase().split('').filter((letter, i) => {
       let letterToNum = Number(rowsPrinted[letter])
       // console.log(firstNumber, letterToNum);
-      if ((firstNumber ^ letterToNum) !== 0) {
-        allSameRow = false;
-      }
-      return allSameRow;
-    }, true);
-    
-    if (same) {
+      return ((firstNumber ^ letterToNum) === 0);
+    });
+    if (word.length === filterSameRow.length) {
       result.push(word)
     }
   });
