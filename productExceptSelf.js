@@ -1,13 +1,8 @@
-// Remember O(n) doesn't mean just one pass. There can be more than one pass, it just has to be a fixed number of passes irrespective of how much data there is.
+// Given an array of n integers where n > 1, nums, return an array output such that output[i] is equal to the product of all the elements of nums except nums[i].
 
-// E.g., 2 passes through an array still devolves to O(n). So does 3 passes.
+// Solve it without division and in O(n).
 
-// What can you do in multiple passes that allows you to assemble the data in a format similar to the table above, so it's tractable to calculate the final result for each index?
-
-// Visualize the factors (the numbers to be multiplied) flattened out like the following.
-
-// Step through, index by index, and consider how you're calculating the result. How can you gather the data in one or more previous passes through the array so you can calculate the final product for each index in a final pass?
-
+// For example, given [1,2,3,4], return [24,12,8,6].
 
 let productExceptSelf = function(nums) {
     let result = [];
