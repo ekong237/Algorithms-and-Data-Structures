@@ -49,27 +49,47 @@ const uniquePathsDP = (grid) => {
   let dp = new Array(m).fill(0);
   dp.forEach((el,i) => dp[i] = new Array(n).fill(0));
 
-  for (let x = 0; x < m; x++) {
-    for (let y = 0; y < n; y++) {
-      if (grid[x][y] === 1) {
-        dp[x][y] = 0;
-        continue;
-      } 
-      if (x === 0) {
-        dp[0][y] = 1;
-      } else if (y === 0) {
-        dp[x][0] = 1;
-      } else {
-        dp[x][y] = dp[x-1][y] + dp[x][y-1]; 
-      } 
+  // initialize 0th row
+  for (let col = 0; col < n; col++) {
+    if (grid[0][col] === 1 || dp[0][col-1] === 0) {
+      dp[0][col] = 0;
+    } else {
+      dp[0][col] = 1;
     }
   }
+
+  // initialize 0th col
+  for (let row = 0; row < m; row++) {
+    if (grid[row][0] === 1 || (dp[row-1] && dp[row-1][0] === 0)) {
+      dp[row][0] = 0;
+    } else {
+      dp[row][0] = 1;
+    }
+  }
+
+  // fill in the rest
+  for (let col = 1; col < n; col++) {
+    for (let row = 1; row < m; row++) {
+      if (grid[row][col] === 1) {
+        dp[row][col] = 0;
+      } else {
+        dp[row][col] = dp[row - 1][col] + dp[row][col - 1];
+      }
+    }
+  }
+  console.log(dp);
   return dp[m-1][n-1];
 }
 
+let arr = [
+  [0,0], 
+  [1,1], 
+  [0,0]
+];
+
 let arr1 =  [
   [0,0,0],
-  [0,1,0],
+  [1,1,1],
   [0,0,0]
 ];
 
@@ -89,3 +109,8 @@ let arr3 = [
   [0,0,0,0]
 ]; //15
 console.log(uniquePathsDP(arr3)); 
+
+
+
+
+
