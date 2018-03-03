@@ -10,5 +10,7 @@ const flatten = (array) => {
   }, []);
 }
 
+
+
 let array = [1, [2, [3, 3, 3]], 4, [5, 6]];
 console.log(flatten(array));
