@@ -36,7 +36,7 @@ const knapsack2 = (val, wt, W) => {
   let dp = new Array(wt.length+1).fill(0);
   dp.forEach((el, i) => dp[i] = new Array(W + 1).fill(0));
 
-  for (let itemNum = 1; itemNum < wt.length + 1; itemNum++) { // curr item is -1 index because first item in val starts at index 0
+  for (let itemNum = 0; itemNum < wt.length ; itemNum++) { // curr item is -1 index because first item in val starts at index 0
     for (let weight = 1; weight < W + 1; weight++) {
        if (wt[itemNum-1] > weight) {
         dp[itemNum][weight] = dp[itemNum-1][weight];
