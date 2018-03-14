@@ -13,8 +13,10 @@ class LinkedList {
     this.tail = null;
   }
 
-  addToTail(val) {
-    let newNode = new Node(val);
+  addToTail(input) {
+    //check if it's a node, if not create a new one
+    let newNode = (input.value) ? input : new Node(input);
+
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -22,7 +24,8 @@ class LinkedList {
       let temp = this.tail;
       this.tail = newNode;
       temp.next = newNode;
-    }    
+    }  
+      
   }
 }
 
