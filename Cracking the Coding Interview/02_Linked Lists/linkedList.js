@@ -35,4 +35,5 @@ class LinkedList {
 // myList.addToTail(8)
 // console.log(JSON.stringify(myList));
 
+module.exports.Node = Node;
 module.exports.LinkedList = LinkedList;
