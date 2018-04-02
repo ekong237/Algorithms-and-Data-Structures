@@ -33,8 +33,12 @@ class Graph {
 
   removeNode(node) {
     // go to node, check all edges, then remove node
-    for (let targetNode in this.nodes[node].edges) {
-      this.removeEdge(targetNode, node);
+
+    for (let eaNode in this.nodes) { // look in each node, check if edges contain remove node, remove edge from eanode to node
+      if (this.nodes[eaNode].edges[node]) {
+        // console.log('node', eaNode, 'has', node);
+        this.removeEdge(eaNode, node)
+      }
     }
     delete this.nodes[node];
   }
@@ -51,15 +55,15 @@ class Graph {
 
 }
 
-// let myGraph = new Graph();
-// myGraph.addNode(3)
-// myGraph.addNode(5)
-// myGraph.addNode(7)
-// myGraph.addEdge(3, 5)
-// myGraph.addEdge(5, 7)
-// myGraph.addEdge(7, 3)
+let myGraph = new Graph();
+myGraph.addNode(3)
+myGraph.addNode(5)
+myGraph.addNode(7)
+myGraph.addEdge(3, 5)
+myGraph.addEdge(5, 7)
+myGraph.addEdge(7, 3)
 // myGraph.removeEdge(7,3)
-// myGraph.removeNode(7)
+myGraph.removeNode(7)
 // console.log(myGraph.contains(7));
 // console.log(myGraph.hasEdge(3, 7));
 // console.log(myGraph.hasEdge(7, 3));
@@ -68,7 +72,7 @@ class Graph {
 // myGraph.forEachNode((node) => {
 //     myGraph.addEdge(node, 5);  
 // })
-// console.log(myGraph.nodes);
+console.log(myGraph.nodes);
 
 class BST {
   constructor(val) {
