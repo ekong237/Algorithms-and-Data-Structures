@@ -4,28 +4,31 @@ const longestPalindromicSubstring = (str) => {
   let strLength = str.length;
   let longest = '';
   for (let i = 0; i < str.length; i++) {
-    let curr;
-    if (strLength % 2 === 0 && str[i] === str[i+1]) {
-      curr = expandFromCenter(str, i, i+1) ;
-      console.log('current even:', curr);
-    } else {
-      curr = expandFromCenter(str, i, i);
-      console.log('current odd:', curr);
-    }
-    longest = (curr.length > longest.length) ? curr : longest;
+    
+    // if (strLength % 2 === 0 && str[i] === str[i+1]) {
+      let curr1 = expandFromCenter(str, i, i+1) ;
+    //   console.log('current even:', curr);
+    // // } else {
+      let curr2 = expandFromCenter(str, i, i);
+      // console.log('current odd:', curr);
+    // }
+    let longestL = (curr1.length > curr2.length) ? curr1 : curr2;
+    longest = (longestL.length > longest.length) ? longestL : longest;
+console.log(longestL, longestL.length, longest.length);
   }
+  console.log(longest);
   return longest;
 }
 
 
 const expandFromCenter = (str, left, right) => {
-    while (left > 0 && right < str.length - 1 && str[left-1] === str[right+1]) {
+    while (left > 0 && right < str.length && str[left-1] === str[right+1]) {
         left--;
         right++;
     }
     return str.slice(left, right + 1);
 }
 
-console.log(expandFromCenter('babad', 2, 2))
+// console.log(expandFromCenter('babad', 2, 2))
 
-// console.log(longestPalindromicSubstring('babad'));
+console.log(longestPalindromicSubstring('abb'));
