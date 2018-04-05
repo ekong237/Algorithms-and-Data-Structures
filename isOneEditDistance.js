@@ -24,18 +24,12 @@ var isOneEditDistance = function(s1, s2) {
             p1++;
             p2++;
         } else if (longer[p1] !== shorter[p2]) {
-            console.log('longer not', longer[p1], shorter[p2]);
             p1++
             count++;
         } else {
           p1++;
           p2++;
         }
-        console.log(longer[p1], shorter[p2]);
-        // p1 = (longer[p1+1]) ? p1+1 : p1;
-        // p2 = (shorter[p2+1]) ? p2+1 : p2;
-        
-        console.log('>', longer[p1], shorter[p2]);
     }
     console.log(count);
     return count === 1;
